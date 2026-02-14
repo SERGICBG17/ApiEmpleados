@@ -29,7 +29,6 @@ class SedeService:
         if not sede:
             raise HTTPException(status_code=404, detail="Sede no encontrada")
 
-        # Solo actualizamos los campos que vienen en la petición
         update_data = data.model_dump(exclude_unset=True)
         for key, value in update_data.items():
             setattr(sede, key, value)

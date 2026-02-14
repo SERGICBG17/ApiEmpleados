@@ -16,10 +16,6 @@ class EmpleadoService:
         return EmpleadoResponse(**emp.model_dump())
 
     def get_all(self, departamento_id: int | None = None):
-        """
-        Obtener todos los empleados
-        Si se proporciona departamento_id, filtra por ese departamento
-        """
         query = select(Empleado)
         if departamento_id:
             query = query.where(Empleado.departamento_id == departamento_id)

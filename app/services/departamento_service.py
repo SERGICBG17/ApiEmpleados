@@ -12,7 +12,7 @@ class DepartamentoService:
         dept = Departamento(**data.model_dump())
         self.session.add(dept)
         self.session.commit()
-        self.session.refresh(dept)  # Actualiza el objeto con los datos de la BD (ej: el ID)
+        self.session.refresh(dept)
         return DepartamentoResponse(**dept.model_dump())
 
     def get_all(self):
@@ -29,7 +29,6 @@ class DepartamentoService:
         if not dept:
             raise HTTPException(status_code=404, detail="Departamento no encontrado")
 
-        # Solo actualizamos los campos que vienen en la petición
         update_data = data.model_dump(exclude_unset=True)
         for key, value in update_data.items():
             setattr(dept, key, value)
