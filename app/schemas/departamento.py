@@ -11,7 +11,7 @@ class DepartamentoResponse(DepartamentoCreate):
     id: int
 
 class DepartamentoUpdate(SQLModel):
-    nombre:str
+    nombre:str | None=None
     correo:str| None=None
     telefono:int |None=None
     ganancias:float |None=None

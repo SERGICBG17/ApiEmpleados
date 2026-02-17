@@ -1,7 +1,7 @@
 from sqlmodel import SQLModel
 
 class SedeCreate(SQLModel):
-    nombre:str |None=None
+    nombre:str
     direccion: str |None=None
 
 class SedeResponse(SedeCreate):

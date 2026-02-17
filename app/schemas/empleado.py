@@ -15,8 +15,8 @@ class EmpleadoResponse(EmpleadoCreate):
     id: int
 
 class EmpleadoUpdate(SQLModel):
-    nombre:str
-    apellido:str
+    nombre:str | None=None
+    apellido:str | None=None
     genero:str | None=None
     edad:int | None=None
     imagen_uri:str | None=None
