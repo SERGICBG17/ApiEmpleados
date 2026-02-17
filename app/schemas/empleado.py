@@ -2,7 +2,7 @@ from sqlmodel import SQLModel
 
 class EmpleadoCreate(SQLModel):
     nombre:str
-    apellido:str
+    apellido:str | None=None
     genero:str | None=None
     edad:int | None=None
     imagen_uri:str | None=None
